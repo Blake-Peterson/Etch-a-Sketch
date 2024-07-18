@@ -11,7 +11,6 @@ function createGrid(row_size, box_size){
         row.style.height = "30px";
         row.setAttribute('id','row${j}');
         row.classList.add("row");
-        row.textContent="Rows";
         container.appendChild(row);
 
         for(let j=0;j<box_size;j++){
@@ -19,7 +18,6 @@ function createGrid(row_size, box_size){
             boxes.style.width= "30px";
             boxes.setAttribute('id','cells${j}');
             boxes.classList.add("boxes");
-            boxes.textContent="boxes";
             row.appendChild(boxes);
             
         } 
