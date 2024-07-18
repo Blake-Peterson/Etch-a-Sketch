@@ -1,4 +1,7 @@
 const container = document.querySelector("#container")
+let row_size =16;
+let box_size =16;
+
 
 function createGrid(row_size, box_size){
 
@@ -22,7 +25,7 @@ function createGrid(row_size, box_size){
         } 
     }
 }
-createGrid(16,16);
+createGrid(row_size,box_size);
 
 function change_grid_color(){
     
@@ -42,4 +45,14 @@ function get_new_grid_size(){
         new_size = prompt("You chose a number too big, please try again");
     }
     return new_size;
+}
+
+function button_call(){
+    const button = document.createElement("button");
+    button.classList.add("#btn")
+    button.addEventListener("click",()=> {
+        document.getElementById("#btn").onclick = get_new_grid_size();//function 
+        //new grid here
+
+    })
 }
