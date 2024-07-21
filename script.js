@@ -1,9 +1,7 @@
 const container = document.querySelector("#container")
 let size=16
 
-
 function createGrid(size){
-
     for(let i=0;i<size;i++){
         const row = document.createElement("div");
         row.style.height = (960/size)+"px";
@@ -25,11 +23,27 @@ function change_box_color(box){
 
 function resetGrid(){
     let newSize= prompt("Enter a value between 1-100");
+    const rows = document.querySelectorAll(".row");
+    rows.forEach( row =>{
+        const boxes = document.querySelectorAll(".boxes");
+        boxes.forEach(box =>{
+            row.removeChild(box);
+        });
+        container.removeChild(row);
+    });
     createGrid(newSize);
 }
 
-const resetButton = document.createElement("button");
-resetButton.textContent= "Reset Grid";
-container.appendChild(resetButton);
+function create_reset_button(){
+    const resetButton = document.createElement("button");
+    resetButton.textContent= "Change Grid Size";
+    resetButton.addEventListener("click",resetGrid);
+    container.appendChild(resetButton);
+}
 
-createGrid(size);
+function create_etch_a_sketch(){
+    create_reset_button();
+    createGrid(size);
+}
+
+create_etch_a_sketch();
